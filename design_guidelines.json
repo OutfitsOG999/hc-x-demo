@@ -1,0 +1,97 @@
+{
+  "project_overview": {
+    "brand_name": "HC Beauty & Aesthetics",
+    "theme": "Light",
+    "vibe": "Apple × Dior Beauty × Aesop × Charlotte Tilbury × Luxury Medical Clinic",
+    "aesthetic": "Clean, feminine, luxurious, expensive feel. Matte White, Warm Ivory, Soft Beige, Champagne Gold accents, Charcoal typography."
+  },
+  "typography": {
+    "headings": "Playfair Display or Cormorant Garamond",
+    "body": "DM Sans or Outfit",
+    "rules": [
+      "Headings MUST use tight letter spacing (tracking-tight or tracking-tighter).",
+      "No 'Inter' or generic sans for headings.",
+      "H1 must be expressive and large (up to text-6xl+ with fluid clamp), but not excessively huge.",
+      "Use 'Light' (font-light) for elegance."
+    ]
+  },
+  "colors": {
+    "background": "#FDFBF7",
+    "foreground": "#1A1A1A",
+    "accents": [
+      "#D4AF37",
+      "#E6DFD3",
+      "#FAFAFA"
+    ],
+    "archetype": "ORGANIC & EARTHY + LUXURY",
+    "rules": [
+      "Avoid pure white #FFFFFF for backgrounds, use Warm Ivory #FDFBF7 or Matte White #FAFAFA.",
+      "Avoid pure black, use Charcoal #1A1A1A.",
+      "No full-screen glossy gradients. Use subtle noise/grain texture.",
+      "Text must maintain high contrast ratio."
+    ]
+  },
+  "layouts": {
+    "grids": "The 'Bento' Grid Protocol - Mode A (Tetris Grid) for marketing. Asymmetry is mandatory.",
+    "spacing": "Generous spacing. p-8 to p-24, gap-8 to gap-16.",
+    "hero": "Massive editorial kinetic hero, no centered templates.",
+    "rules": [
+      "Do not use Bootstrap-style standard equal columns.",
+      "Overlap elements slightly to create depth.",
+      "Ensure borders have internal padding to prevent text collision."
+    ]
+  },
+  "visual_enhancers": {
+    "surfaces": "Glassmorphism for sticky headers (backdrop-blur-xl bg-white/70, 1px white/20 border, shadow-sm). Flat/soft shadow surfaces for cards.",
+    "motion": "Framer Motion for scroll reveals, Lenis for momentum smooth scrolling.",
+    "marquee": "Slow editorial ribbon (react-fast-marquee). Pale background, dark text, gap-24.",
+    "hero_load": "Masked line-by-line headline reveal."
+  },
+  "components": {
+    "header": "Sticky navigation (z-50), backdrop-blur glassmorphism. 'Book Consultation' CTA always visible.",
+    "floating_cta": "Large floating booking button anchored to bottom right. Triggers Shadcn demo booking modal.",
+    "treatments": "Featured treatments showcased elegantly, avoiding repetitive standard card grids.",
+    "gallery": "Before & After interactive comparison sliders.",
+    "manifesto": "Numbered manifesto chapters with elegant typography and asymmetrical alignment.",
+    "journey": "Animated timeline for the Treatment Journey.",
+    "faq": "Luxury FAQ accordion with smooth animations.",
+    "footer": "Premium massive footer with large typography."
+  },
+  "accessibility": {
+    "contrast": "Ensure minimum 4.5:1 ratio for normal text, 3:1 for large text.",
+    "testing": "All interactive and key informational elements MUST include a `data-testid` attribute (e.g., data-testid='book-consultation-nav-btn')."
+  },
+  "media": {
+    "image_urls": {
+      "clinic_reception": "https://images.unsplash.com/photo-1781513144825-aa1e284c5950?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODU2MTk1NzF8MA&ixlib=rb-4.1.0&q=85",
+      "clinic_room": "https://images.pexels.com/photos/16571735/pexels-photo-16571735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "model_portrait": "https://images.unsplash.com/photo-1611451444023-7fe9d86fe1d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwd29tYW4lMjBjbGVhciUyMHNraW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODU2MTk1NzF8MA&ixlib=rb-4.1.0&q=85",
+      "skincare_product": "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBza2luY2FyZSUyMGNvc21ldGljJTIwYm90dGxlfGVufDB8fHx8MTc4NTYxOTU3MXww&ixlib=rb-4.1.0&q=85",
+      "gold_accent_texture": "https://images.unsplash.com/photo-1729006557274-d955ca21fe0c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwYWJzdHJhY3QlMjBnb2xkJTIwbGlxdWlkfGVufDB8fHx8MTc4NTYxOTU3MXww&ixlib=rb-4.1.0&q=85"
+    },
+    "rules": "Treat photography deliberately: spotlight effects, clipped frames, intentional styling. DO NOT use placeholder images."
+  },
+  "3d_libraries": {
+    "library": "react-three-fiber, @react-three/drei",
+    "usage": "Subtle parallax/3D hero moment showcasing floating luxury skincare bottles, gold rings, or cosmetic particles.",
+    "lighting": "Provide adequate ambient light and Environment preset to ensure 3D elements look premium and not flat or muddy."
+  },
+  "instructions_to_main_agent": [
+    "Install `@phosphor-icons/react`, `framer-motion`, `@studio-freight/lenis`, `react-fast-marquee`, `three`, `@react-three/fiber`, `@react-three/drei`.",
+    "Add 'Playfair Display' and 'DM Sans' to your Google Fonts link in index.html.",
+    "Configure custom colors in tailwind.config.js for Warm Ivory (#FDFBF7), Matte White (#FAFAFA), Champagne Gold (#D4AF37), Charcoal (#1A1A1A).",
+    "Use Lenis on the root application component to enable smooth scrolling globally.",
+    "Hero MUST include masked line-by-line reveal using Framer Motion (`overflow-hidden` wrappers around text lines).",
+    "Never use fully transparent backgrounds for the sticky header; use backdrop-blur with a semi-transparent white/ivory base.",
+    "Build the Before & After section using an interactive slider component.",
+    "Implement Shadcn UI for the demo booking modal triggered by a floating CTA."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "DO NOT apply universal transitions (e.g., transition: all). This breaks Framer Motion transforms.",
+    "DO NOT center align the app container in CSS. No `.App { text-align: center; }`.",
+    "Use 2-3x more spacing than typical (e.g. py-24 or py-32 for sections). Cramped designs look cheap.",
+    "NEVER use placeholder text for images/logos. Use the provided Unsplash URLs.",
+    "Every interaction needs micro-animations (hover states, focus states).",
+    "All interactive elements MUST HAVE a `data-testid` attribute."
+  ]
+}
