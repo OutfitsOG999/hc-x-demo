@@ -4,7 +4,7 @@ import { Reveal, Eyebrow } from "@/components/Reveal";
 
 export default function FAQ() {
   return (
-    <section id="faq" data-testid="faq-section" className="py-28 lg:py-40 bg-matte relative grain">
+    <section id="faq" data-testid="faq-section" className="py-28 lg:py-40 bg-matte relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">

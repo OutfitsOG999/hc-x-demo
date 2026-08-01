@@ -4,7 +4,7 @@ import { Reveal, Eyebrow } from "@/components/Reveal";
 
 export default function Journey() {
   return (
-    <section id="journey" data-testid="journey-section" className="py-28 lg:py-40 bg-matte relative grain">
+    <section id="journey" data-testid="journey-section" className="py-28 lg:py-40 bg-matte relative">
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <Reveal className="text-center max-w-2xl mx-auto mb-20">
           <Eyebrow>

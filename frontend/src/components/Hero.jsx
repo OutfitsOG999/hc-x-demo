@@ -1,4 +1,4 @@
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowDown, Star } from "lucide-react";
 import { IMG } from "@/data/site";
@@ -13,10 +13,13 @@ const LINES = [
 ];
 
 const EASE = [0.22, 1, 0.36, 1];
+// Align with shortened loader (~0.9s)
+const REVEAL = 0.95;
 
 export default function Hero() {
   const { openBooking, scrollTo } = useSite();
   const ref = useRef(null);
+  const [show3d, setShow3d] = useState(false);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 60, damping: 20 });
@@ -25,6 +28,27 @@ export default function Hero() {
   const imgY = useTransform(sy, [-1, 1], [-10, 10]);
   const ringX = useTransform(sx, [-1, 1], [22, -22]);
   const ringY = useTransform(sy, [-1, 1], [16, -16]);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (prefersReduced || !isDesktop) return undefined;
+
+    let idleId;
+    let timeoutId;
+    const enable = () => setShow3d(true);
+
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(enable, { timeout: 1800 });
+    } else {
+      timeoutId = window.setTimeout(enable, 1200);
+    }
+
+    return () => {
+      if (idleId && "cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
 
   const onMouseMove = (e) => {
     const r = ref.current.getBoundingClientRect();
@@ -40,20 +64,22 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative min-h-screen flex items-center overflow-hidden grain"
     >
-      <div className="absolute inset-0 opacity-90 hidden md:block">
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
+      <div className="absolute inset-0 opacity-80 hidden md:block pointer-events-none">
+        {show3d && (
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
+        )}
       </div>
-      <div className="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-beige/50 blur-3xl" />
-      <div className="absolute bottom-0 -left-40 w-[28rem] h-[28rem] rounded-full bg-champagne-light/30 blur-3xl" />
+      <div className="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-beige/50 blur-3xl will-change-transform" />
+      <div className="absolute bottom-0 -left-40 w-[28rem] h-[28rem] rounded-full bg-champagne-light/30 blur-3xl will-change-transform" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-24 grid lg:grid-cols-12 gap-16 items-center w-full">
         <div className="lg:col-span-7">
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.35, duration: 0.8, ease: EASE }}
+            transition={{ delay: REVEAL, duration: 0.7, ease: EASE }}
             className="text-xs tracking-[0.4em] uppercase text-champagne-dark font-medium mb-8 flex items-center gap-3"
           >
             <span className="inline-block w-10 h-px bg-champagne" />
@@ -66,7 +92,7 @@ export default function Hero() {
                 <motion.span
                   initial={{ y: "112%" }}
                   animate={{ y: 0 }}
-                  transition={{ delay: 2.45 + i * 0.14, duration: 1.05, ease: EASE }}
+                  transition={{ delay: REVEAL + 0.1 + i * 0.1, duration: 0.9, ease: EASE }}
                   className={`block ${line.italic ? "italic text-champagne-dark" : ""}`}
                 >
                   {line.text}
@@ -78,7 +104,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.0, duration: 0.9, ease: EASE }}
+            transition={{ delay: REVEAL + 0.45, duration: 0.75, ease: EASE }}
             className="mt-8 max-w-md text-base md:text-lg text-charcoal-soft font-light leading-relaxed"
           >
             Medical-led aesthetic treatments in a calm, private setting — where
@@ -88,7 +114,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.15, duration: 0.9, ease: EASE }}
+            transition={{ delay: REVEAL + 0.55, duration: 0.75, ease: EASE }}
             className="mt-10 flex flex-wrap items-center gap-6"
           >
             <button
@@ -115,7 +141,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.8, duration: 1.2, ease: EASE }}
+            transition={{ delay: REVEAL + 0.25, duration: 1, ease: EASE }}
             className="relative"
           >
             <motion.div
@@ -128,13 +154,16 @@ export default function Hero() {
                   src={IMG.heroPortrait}
                   alt="Elegant woman with clear, radiant skin"
                   className="w-full h-[34rem] object-cover scale-105"
-                  loading="eager"
+                  width={720}
+                  height={960}
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 3.5, duration: 0.8, ease: EASE }}
+                transition={{ delay: REVEAL + 0.85, duration: 0.7, ease: EASE }}
                 className="absolute -bottom-6 -left-10 glass rounded-2xl px-6 py-4 shadow-[0_20px_50px_rgba(26,26,26,0.12)] border border-white/40 animate-float-soft"
                 data-testid="hero-rating-badge"
               >
@@ -155,7 +184,7 @@ export default function Hero() {
         onClick={() => scrollTo("#trust")}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.8, duration: 1 }}
+        transition={{ delay: REVEAL + 1.1, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-charcoal-soft hover:text-champagne-dark transition-colors duration-300"
         aria-label="Scroll down"
       >

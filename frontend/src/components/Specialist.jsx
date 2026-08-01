@@ -19,6 +19,7 @@ export default function Specialist() {
                 alt="Hannah Collins, founder and lead aesthetic practitioner"
                 className="w-full h-[32rem] object-cover hover:scale-105 transition-transform duration-[1.4s] ease-out"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -bottom-8 -right-4 md:-right-8 glass border border-white/40 rounded-2xl px-6 py-5 shadow-xl animate-float-soft">

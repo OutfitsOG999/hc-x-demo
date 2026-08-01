@@ -13,7 +13,7 @@ export default function ContactCTA() {
   const { openBooking } = useSite();
 
   return (
-    <section id="contact" data-testid="contact-section" className="py-28 lg:py-40 bg-charcoal text-ivory relative grain overflow-hidden">
+    <section id="contact" data-testid="contact-section" className="py-28 lg:py-40 bg-charcoal text-ivory relative overflow-hidden">
       <div className="absolute -top-32 left-1/3 w-[36rem] h-[36rem] rounded-full bg-champagne/10 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative">
         <div className="grid lg:grid-cols-12 gap-16 items-center">

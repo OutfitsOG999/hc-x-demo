@@ -3,7 +3,7 @@ import { Reveal, Eyebrow } from "@/components/Reveal";
 
 export default function WhyChoose() {
   return (
-    <section id="why" data-testid="why-choose-section" className="py-28 lg:py-40 bg-charcoal text-ivory relative grain overflow-hidden">
+    <section id="why" data-testid="why-choose-section" className="py-28 lg:py-40 bg-charcoal text-ivory relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[30rem] h-[30rem] rounded-full bg-champagne/10 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative">
         <div className="grid lg:grid-cols-12 gap-16">

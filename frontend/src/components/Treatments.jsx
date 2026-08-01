@@ -10,7 +10,7 @@ export default function Treatments() {
   const { openBooking } = useSite();
 
   return (
-    <section id="treatments" data-testid="treatments-section" className="py-28 lg:py-40 bg-matte relative grain">
+    <section id="treatments" data-testid="treatments-section" className="py-28 lg:py-40 bg-matte relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-7">
@@ -83,6 +83,8 @@ export default function Treatments() {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                       className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </AnimatePresence>
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent" />

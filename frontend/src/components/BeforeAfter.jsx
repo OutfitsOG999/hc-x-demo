@@ -32,7 +32,7 @@ function CompareSlider({ img, label }) {
       onPointerUp={() => (dragging.current = false)}
       onPointerLeave={() => (dragging.current = false)}
     >
-      <img src={img} alt={`${label} — after`} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+      <img src={img} alt={`${label} — after`} className="absolute inset-0 w-full h-full object-cover" draggable={false} loading="lazy" decoding="async" />
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         <img
           src={img}
@@ -40,6 +40,8 @@ function CompareSlider({ img, label }) {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: "grayscale(0.75) brightness(0.88) contrast(0.92)" }}
           draggable={false}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="absolute top-0 bottom-0 w-px bg-ivory/90" style={{ left: `${pos}%` }}>

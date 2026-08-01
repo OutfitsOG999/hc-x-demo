@@ -26,7 +26,7 @@ export default function Navbar() {
         data-testid="main-nav"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 2.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ delay: 1.0, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-500 ${
           scrolled ? "glass border-b border-white/30 shadow-[0_8px_30px_rgba(26,26,26,0.06)]" : "bg-transparent"
         }`}

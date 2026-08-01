@@ -1,30 +1,23 @@
+/** Sized Unsplash/Pexels URLs — smaller payloads for faster loads */
+const u = (id, w = 900) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70&fm=webp`;
+
 export const IMG = {
-  heroPortrait:
-    "https://images.unsplash.com/photo-1611451444023-7fe9d86fe1d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwd29tYW4lMjBjbGVhciUyMHNraW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODU2MTk1NzF8MA&ixlib=rb-4.1.0&q=85",
-  reception:
-    "https://images.unsplash.com/photo-1781513144825-aa1e284c5950?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODU2MTk1NzF8MA&ixlib=rb-4.1.0&q=85",
-  room: "https://images.pexels.com/photos/16571735/pexels-photo-16571735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  product:
-    "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBza2luY2FyZSUyMGNvc21ldGljJTIwYm90dGxlfGVufDB8fHx8MTc4NTYxOTU3MXww&ixlib=rb-4.1.0&q=85",
-  gold: "https://images.unsplash.com/photo-1729006557274-d955ca21fe0c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwYWJzdHJhY3QlMjBnb2xkJTIwbGlxdWlkfGVufDB8fHx8MTc4NTYxOTU3MXww&ixlib=rb-4.1.0&q=85",
-  facial:
-    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&auto=format&fit=crop",
-  spa: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1200&auto=format&fit=crop",
-  salon:
-    "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1200&auto=format&fit=crop",
-  beauty:
-    "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1200&auto=format&fit=crop",
-  serum:
-    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop",
-  cream:
-    "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1200&auto=format&fit=crop",
-  products:
-    "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200&auto=format&fit=crop",
-  mask: "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=1200&auto=format&fit=crop",
-  bottle:
-    "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop",
-  specialist:
-    "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop",
+  heroPortrait: u("photo-1611451444023-7fe9d86fe1d0", 900),
+  reception: u("photo-1781513144825-aa1e284c5950", 1000),
+  room: "https://images.pexels.com/photos/16571735/pexels-photo-16571735.jpeg?auto=compress&cs=tinysrgb&w=900&h=1200&dpr=1",
+  product: u("photo-1576426863848-c21f53c60b19", 800),
+  gold: u("photo-1729006557274-d955ca21fe0c", 800),
+  facial: u("photo-1570172619644-dfd03ed5d881", 900),
+  spa: u("photo-1512290923902-8a9f81dc236c", 800),
+  salon: u("photo-1522337660859-02fbefca4702", 800),
+  beauty: u("photo-1487412947147-5cebf100ffc2", 900),
+  serum: u("photo-1620916566398-39f1143ab7be", 800),
+  cream: u("photo-1608248543803-ba4f8c70ae0b", 800),
+  products: u("photo-1571781926291-c477ebfd024b", 800),
+  mask: u("photo-1596178065887-1198b6148b2b", 800),
+  bottle: u("photo-1556228720-195a672e8a03", 800),
+  specialist: u("photo-1559839734-2b71ea197ec2", 900),
 };
 
 export const TREATMENTS = [

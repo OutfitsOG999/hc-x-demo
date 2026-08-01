@@ -8,7 +8,7 @@ export default function Loader() {
       data-testid="loader-screen"
       className="fixed inset-0 z-[100] bg-ivory flex flex-col items-center justify-center"
       exit={{ y: "-100%" }}
-      transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
     >
       <div className="flex overflow-hidden">
         {letters.map((l, i) => (
